@@ -6,6 +6,9 @@ abstract class Prodotti
     public $categoria;
     public $descrizione;
     public $costo;
+    private int $availableStartMonth;
+	private int $availableEndMonth;
+	private int $availableQty;
 
 
 	public function __construct($nome,$categoria,$descrizione, $costo)
@@ -15,6 +18,20 @@ abstract class Prodotti
         $this->descrizione = $descrizione;
 		$this->costo = $costo;
 	}
+
+    public function isAvailable ()
+	{
+		if ($this->availableQty == 0) {
+			return false;
+		}
+		$currentMonth = (int) date('m');
+		if ($this->availableStartMonth <= $currentMonth && $currentMonth <= $this->availableEndMonth) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
     public function setCosto($costo) 
     {
     if (is_integer($costo) && $costo > 0) {
@@ -26,4 +43,10 @@ abstract class Prodotti
     {
     return $this->costo;
     }
+
+    public function decrementAvailableQty()
+	{
+		$this->availableQty--;
+		return $this;
+	}
 }

@@ -3,14 +3,21 @@ class Utente
 {
 	private $nome;
     private $cognome;
-	private $creditCard;
+	private $CreditCard;
     public $sconto;
 
-	public function __construct($nome, $cognome, $creditCard)
+	public function __construct($nome, $cognome, $CreditCard)
 	{
 		$this->nome = $nome;
         $this->cognome = $cognome;
-		$this->creditCard = $creditCard;
+		$this->CreditCard = $CreditCard;
 
 	}
+    public function checkValidity() {
+        $now = new DateTime();
+    
+        $expiration = DateTime::createFromFormat('m/y', $this->expiry);
+        $interval = $now->diff($expiration);
+        return $interval->invert != 1;
+    }
 }

@@ -17,4 +17,24 @@ include_once __DIR__ . '/Cucce.php';
 include_once __DIR__ . '/Igiene.php';
 
 
+/*
+$username		= $_POST['username']		?? '';
+$password		= $_POST['password']		?? '';
 
+$name				= $_POST['name']			?? '';
+$address			= $_POST['address']		?? '';
+
+$number			= $_POST['number']		?? '';
+$expiryYear		= $_POST['expiryYear']	?? '';
+$expiryMonth	= $_POST['expiryMonth']	?? '';
+
+$creditCard		= new CreditCard($number, $expiryYear, $expiryMonth);
+
+if ($username && $password) {
+	$user = new Iscritto($username, $password);
+} else {
+	$user = new NonIscritto($name, $address, $creditCard);
+}
+
+var_dump((int) date('y'));
+var_dump((int) date('n'));*/
