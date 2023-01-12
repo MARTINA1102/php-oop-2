@@ -1,4 +1,5 @@
 <?php
+include __DIR__ . '/traits/Login.php';
 class Utente
 {
 	private $nome;
